@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>EventBus.Core</id>
+    <version>1.0.0</version>
+    <authors>Akash Mishra</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <readme>README.md</readme>
+    <projectUrl>https://github.com/mishraakashgit/EventBus.Abstractions</projectUrl>
+    <description>Distributed event bus abstraction with support for multiple message brokers. Features include idempotent message handling, automatic retries, dead letter queues, and distributed tracing.</description>
+    <tags>eventbus messagebus rabbitmq microservices distributed-systems pubsub messaging event-driven</tags>
+    <repository type="git" url="https://github.com/mishraakashgit/EventBus.Abstractions" commit="63169060d508138305d6817135954ead87411926" />
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="Microsoft.Extensions.DependencyInjection.Abstractions" version="8.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Logging.Abstractions" version="8.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Options" version="8.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="/workspaces/EventBus.Abstractions/src/EventBus.Core/bin/Release/net8.0/EventBus.Core.dll" target="lib/net8.0/EventBus.Core.dll" />
+    <file src="/workspaces/EventBus.Abstractions/src/EventBus.Core/bin/Release/net8.0/EventBus.Core.xml" target="lib/net8.0/EventBus.Core.xml" />
+    <file src="/workspaces/EventBus.Abstractions/README.md" target="/README.md" />
+  </files>
+</package>

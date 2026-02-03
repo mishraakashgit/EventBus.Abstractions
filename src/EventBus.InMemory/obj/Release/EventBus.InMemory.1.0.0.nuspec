@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>EventBus.InMemory</id>
+    <version>1.0.0</version>
+    <authors>Akash Mishra</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <description>In-memory implementation of EventBus.Core for testing and single-instance scenarios.</description>
+    <tags>eventbus in-memory testing mocking</tags>
+    <repository type="git" url="https://github.com/mishraakashgit/EventBus.Abstractions" commit="63169060d508138305d6817135954ead87411926" />
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="EventBus.Core" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.DependencyInjection" version="8.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Logging" version="8.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="/workspaces/EventBus.Abstractions/src/EventBus.InMemory/bin/Release/net8.0/EventBus.InMemory.dll" target="lib/net8.0/EventBus.InMemory.dll" />
+    <file src="/workspaces/EventBus.Abstractions/src/EventBus.InMemory/bin/Release/net8.0/EventBus.InMemory.xml" target="lib/net8.0/EventBus.InMemory.xml" />
+  </files>
+</package>

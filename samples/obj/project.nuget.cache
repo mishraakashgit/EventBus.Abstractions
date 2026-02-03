@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "a2m1dkbvMAw=",
+  "dgSpecHash": "WA9dUo7wNgw=",
   "success": true,
   "projectFilePath": "/workspaces/EventBus.Abstractions/samples/SimpleConsole.csproj",
   "expectedPackageFiles": [
@@ -31,13 +31,7 @@
     "/home/codespace/.nuget/packages/microsoft.extensions.options/8.0.0/microsoft.extensions.options.8.0.0.nupkg.sha512",
     "/home/codespace/.nuget/packages/microsoft.extensions.options.configurationextensions/8.0.0/microsoft.extensions.options.configurationextensions.8.0.0.nupkg.sha512",
     "/home/codespace/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
-    "/home/codespace/.nuget/packages/system.diagnostics.diagnosticsource/8.0.0/system.diagnostics.diagnosticsource.8.0.0.nupkg.sha512",
-    "/home/codespace/.nuget/packages/system.diagnostics.eventlog/8.0.0/system.diagnostics.eventlog.8.0.0.nupkg.sha512",
-    "/home/codespace/.nuget/packages/system.text.encodings.web/8.0.0/system.text.encodings.web.8.0.0.nupkg.sha512",
-    "/home/codespace/.nuget/packages/system.text.json/8.0.0/system.text.json.8.0.0.nupkg.sha512",
-    "/home/codespace/.nuget/packages/microsoft.netcore.app.ref/8.0.22/microsoft.netcore.app.ref.8.0.22.nupkg.sha512",
-    "/home/codespace/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.22/microsoft.aspnetcore.app.ref.8.0.22.nupkg.sha512",
-    "/home/codespace/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.22/microsoft.netcore.app.host.linux-x64.8.0.22.nupkg.sha512"
+    "/home/codespace/.nuget/packages/system.diagnostics.eventlog/8.0.0/system.diagnostics.eventlog.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }

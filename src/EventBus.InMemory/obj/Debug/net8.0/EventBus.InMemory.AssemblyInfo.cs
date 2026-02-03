@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute(("In-memory implementation of EventBus.Core for testing and single-instance scenari" +
     "os."))]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+30b10e60f7001da90b46538aad1c51d19931910d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+63169060d508138305d6817135954ead87411926")]
 [assembly: System.Reflection.AssemblyProductAttribute("EventBus.InMemory")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EventBus.InMemory")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
