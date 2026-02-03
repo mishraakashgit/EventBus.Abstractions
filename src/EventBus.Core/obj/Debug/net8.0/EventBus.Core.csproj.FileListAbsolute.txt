@@ -1,0 +1,15 @@
+/workspaces/EventBus.Abstractions/src/EventBus.Core/bin/Debug/net8.0/EventBus.Core.deps.json
+/workspaces/EventBus.Abstractions/src/EventBus.Core/bin/Debug/net8.0/EventBus.Core.dll
+/workspaces/EventBus.Abstractions/src/EventBus.Core/bin/Debug/net8.0/EventBus.Core.pdb
+/workspaces/EventBus.Abstractions/src/EventBus.Core/bin/Debug/net8.0/EventBus.Core.xml
+/workspaces/EventBus.Abstractions/src/EventBus.Core/obj/Debug/net8.0/EventBus.Core.csproj.AssemblyReference.cache
+/workspaces/EventBus.Abstractions/src/EventBus.Core/obj/Debug/net8.0/EventBus.Core.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/EventBus.Abstractions/src/EventBus.Core/obj/Debug/net8.0/EventBus.Core.AssemblyInfoInputs.cache
+/workspaces/EventBus.Abstractions/src/EventBus.Core/obj/Debug/net8.0/EventBus.Core.AssemblyInfo.cs
+/workspaces/EventBus.Abstractions/src/EventBus.Core/obj/Debug/net8.0/EventBus.Core.csproj.CoreCompileInputs.cache
+/workspaces/EventBus.Abstractions/src/EventBus.Core/obj/Debug/net8.0/EventBus.Core.sourcelink.json
+/workspaces/EventBus.Abstractions/src/EventBus.Core/obj/Debug/net8.0/EventBus.Core.dll
+/workspaces/EventBus.Abstractions/src/EventBus.Core/obj/Debug/net8.0/refint/EventBus.Core.dll
+/workspaces/EventBus.Abstractions/src/EventBus.Core/obj/Debug/net8.0/EventBus.Core.xml
+/workspaces/EventBus.Abstractions/src/EventBus.Core/obj/Debug/net8.0/EventBus.Core.pdb
+/workspaces/EventBus.Abstractions/src/EventBus.Core/obj/Debug/net8.0/ref/EventBus.Core.dll

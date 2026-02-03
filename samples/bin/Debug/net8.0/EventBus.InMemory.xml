@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EventBus.InMemory</name>
+    </assembly>
+    <members>
+        <member name="T:EventBus.InMemory.InMemoryEventBus">
+            <summary>
+            In-memory implementation of IEventBus for testing and single-instance scenarios
+            Thread-safe and supports concurrent publish/subscribe operations
+            </summary>
+        </member>
+        <member name="T:EventBus.InMemory.ServiceCollectionExtensions">
+            <summary>
+            Extension methods for registering InMemory event bus
+            </summary>
+        </member>
+        <member name="M:EventBus.InMemory.ServiceCollectionExtensions.AddInMemoryEventBus(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{EventBus.Core.Configuration.EventBusOptions})">
+            <summary>
+            Adds the InMemory event bus to the service collection
+            </summary>
+            <param name="services">Service collection</param>
+            <param name="configure">Configuration action</param>
+            <returns>Service collection for chaining</returns>
+        </member>
+        <member name="T:EventBus.InMemory.InMemoryDeadLetterQueue">
+            <summary>
+            In-memory implementation of dead letter queue
+            </summary>
+        </member>
+    </members>
+</doc>

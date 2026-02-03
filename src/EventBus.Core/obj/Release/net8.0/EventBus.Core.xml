@@ -1,0 +1,466 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EventBus.Core</name>
+    </assembly>
+    <members>
+        <member name="T:EventBus.Core.Configuration.EventBusOptions">
+            <summary>
+            Configuration options for the event bus
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Configuration.EventBusOptions.Prefix">
+            <summary>
+            Prefix for all queue/exchange names (useful for multi-tenant scenarios)
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Configuration.EventBusOptions.EnableIdempotency">
+            <summary>
+            Whether to enable idempotency checking
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Configuration.EventBusOptions.IdempotencyTtl">
+            <summary>
+            How long to keep idempotency records (to prevent memory leaks)
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Configuration.EventBusOptions.RetryPolicy">
+            <summary>
+            Retry policy for failed message processing
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Configuration.EventBusOptions.EnableDeadLetterQueue">
+            <summary>
+            Whether to enable dead letter queue
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Configuration.EventBusOptions.MaxMessageSizeBytes">
+            <summary>
+            Maximum message size in bytes (0 = no limit)
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Configuration.EventBusOptions.MessageTtl">
+            <summary>
+            Message time-to-live (how long messages remain in queue before expiring)
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Configuration.EventBusOptions.ConcurrentConsumers">
+            <summary>
+            Number of concurrent consumers per subscription
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Configuration.EventBusOptions.PrefetchCount">
+            <summary>
+            Prefetch count for message batching (broker-specific)
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Configuration.EventBusOptions.AutoDeleteQueues">
+            <summary>
+            Whether to auto-delete queues when no consumers are connected
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Configuration.EventBusOptions.DurableQueues">
+            <summary>
+            Whether queues should be durable (survive broker restarts)
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Configuration.EventBusOptions.PublishTimeout">
+            <summary>
+            Timeout for publish operations
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Configuration.EventBusOptions.UsePublisherConfirms">
+            <summary>
+            Whether to use publisher confirms (RabbitMQ-specific, ensures message delivery)
+            </summary>
+        </member>
+        <member name="T:EventBus.Core.Configuration.TelemetryOptions">
+            <summary>
+            Telemetry and metrics options
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Configuration.TelemetryOptions.EnableTracing">
+            <summary>
+            Whether to enable distributed tracing
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Configuration.TelemetryOptions.EnableMetrics">
+            <summary>
+            Whether to enable metrics collection
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Configuration.TelemetryOptions.LogMessagePayloads">
+            <summary>
+            Whether to log message payloads (disable for sensitive data)
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Configuration.TelemetryOptions.ServiceName">
+            <summary>
+            Service name for distributed tracing
+            </summary>
+        </member>
+        <member name="T:EventBus.Core.DeadLetter.DeadLetterMessage">
+            <summary>
+            Represents a message that failed processing and was moved to dead letter queue
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.DeadLetter.DeadLetterMessage.Event">
+            <summary>
+            The original event that failed
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.DeadLetter.DeadLetterMessage.AttemptCount">
+            <summary>
+            Number of times processing was attempted
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.DeadLetter.DeadLetterMessage.LastException">
+            <summary>
+            Exception details from the last failed attempt
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.DeadLetter.DeadLetterMessage.LastStackTrace">
+            <summary>
+            Stack trace from the last failed attempt
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.DeadLetter.DeadLetterMessage.OriginalEnqueueTime">
+            <summary>
+            When the message was first enqueued
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.DeadLetter.DeadLetterMessage.DeadLetterTime">
+            <summary>
+            When the message was moved to dead letter queue
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.DeadLetter.DeadLetterMessage.Reason">
+            <summary>
+            Reason why the message was dead lettered
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.DeadLetter.DeadLetterMessage.Metadata">
+            <summary>
+            Additional context about the failure
+            </summary>
+        </member>
+        <member name="T:EventBus.Core.DeadLetter.DeadLetterReason">
+            <summary>
+            Reason why a message was moved to dead letter queue
+            </summary>
+        </member>
+        <member name="F:EventBus.Core.DeadLetter.DeadLetterReason.MaxRetryAttemptsExceeded">
+            <summary>
+            Maximum retry attempts exceeded
+            </summary>
+        </member>
+        <member name="F:EventBus.Core.DeadLetter.DeadLetterReason.MessageExpired">
+            <summary>
+            Message expired before it could be processed
+            </summary>
+        </member>
+        <member name="F:EventBus.Core.DeadLetter.DeadLetterReason.DeserializationFailed">
+            <summary>
+            Malformed message that cannot be deserialized
+            </summary>
+        </member>
+        <member name="F:EventBus.Core.DeadLetter.DeadLetterReason.NonRetryableException">
+            <summary>
+            Handler threw a non-retryable exception
+            </summary>
+        </member>
+        <member name="F:EventBus.Core.DeadLetter.DeadLetterReason.Manual">
+            <summary>
+            Manually moved to dead letter by operator
+            </summary>
+        </member>
+        <member name="T:EventBus.Core.DeadLetter.IDeadLetterQueue">
+            <summary>
+            Service for managing dead letter messages
+            </summary>
+        </member>
+        <member name="M:EventBus.Core.DeadLetter.IDeadLetterQueue.AddAsync(EventBus.Core.DeadLetter.DeadLetterMessage,System.Threading.CancellationToken)">
+            <summary>
+            Adds a message to the dead letter queue
+            </summary>
+            <param name="message">The dead letter message</param>
+            <param name="cancellationToken">Cancellation token</param>
+        </member>
+        <member name="M:EventBus.Core.DeadLetter.IDeadLetterQueue.GetMessagesAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Retrieves messages from the dead letter queue
+            </summary>
+            <param name="count">Maximum number of messages to retrieve</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>Collection of dead letter messages</returns>
+        </member>
+        <member name="M:EventBus.Core.DeadLetter.IDeadLetterQueue.RequeueAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Requeues a dead letter message for reprocessing
+            </summary>
+            <param name="eventId">ID of the event to requeue</param>
+            <param name="cancellationToken">Cancellation token</param>
+        </member>
+        <member name="M:EventBus.Core.DeadLetter.IDeadLetterQueue.DeleteAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Permanently removes a message from the dead letter queue
+            </summary>
+            <param name="eventId">ID of the event to remove</param>
+            <param name="cancellationToken">Cancellation token</param>
+        </member>
+        <member name="M:EventBus.Core.DeadLetter.IDeadLetterQueue.GetCountAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets the count of messages in the dead letter queue
+            </summary>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>Number of messages in dead letter queue</returns>
+        </member>
+        <member name="T:EventBus.Core.Idempotency.IIdempotencyService">
+            <summary>
+            Service for ensuring idempotent message processing
+            Prevents duplicate processing of the same event
+            </summary>
+        </member>
+        <member name="M:EventBus.Core.Idempotency.IIdempotencyService.IsProcessedAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Checks if an event has already been processed
+            </summary>
+            <param name="eventId">Unique identifier of the event</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>True if already processed, false otherwise</returns>
+        </member>
+        <member name="M:EventBus.Core.Idempotency.IIdempotencyService.MarkAsProcessedAsync(System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+            Marks an event as processed
+            </summary>
+            <param name="eventId">Unique identifier of the event</param>
+            <param name="ttl">Time-to-live for the record (optional)</param>
+            <param name="cancellationToken">Cancellation token</param>
+        </member>
+        <member name="M:EventBus.Core.Idempotency.IIdempotencyService.TryAcquireProcessingLockAsync(System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+            Attempts to acquire a lock for processing an event
+            This is an atomic operation that both checks and marks in one step
+            </summary>
+            <param name="eventId">Unique identifier of the event</param>
+            <param name="ttl">Time-to-live for the record</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>True if lock acquired (event not processed), false if already processed</returns>
+        </member>
+        <member name="T:EventBus.Core.Idempotency.InMemoryIdempotencyService">
+            <summary>
+            In-memory implementation of idempotency service
+            Suitable for single-instance scenarios or testing
+            For distributed systems, use Redis or similar
+            </summary>
+        </member>
+        <member name="T:EventBus.Core.Events.IEvent">
+            <summary>
+            Base interface for all events that can be published through the event bus
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Events.IEvent.EventId">
+            <summary>
+            Unique identifier for this event instance
+            Used for idempotency checking and correlation
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Events.IEvent.CreatedAt">
+            <summary>
+            Timestamp when the event was created
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Events.IEvent.CorrelationId">
+            <summary>
+            Optional correlation ID for tracing related events across services
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Events.IEvent.EventType">
+            <summary>
+            Type name of the event, used for routing and serialization
+            </summary>
+        </member>
+        <member name="T:EventBus.Core.Events.EventBase">
+            <summary>
+            Base implementation of IEvent with common properties
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Events.EventBase.EventId">
+            <inheritdoc />
+        </member>
+        <member name="P:EventBus.Core.Events.EventBase.CreatedAt">
+            <inheritdoc />
+        </member>
+        <member name="P:EventBus.Core.Events.EventBase.CorrelationId">
+            <inheritdoc />
+        </member>
+        <member name="P:EventBus.Core.Events.EventBase.EventType">
+            <inheritdoc />
+        </member>
+        <member name="T:EventBus.Core.Abstractions.IEventBus">
+            <summary>
+            Defines the contract for publishing events to the event bus
+            </summary>
+        </member>
+        <member name="M:EventBus.Core.Abstractions.IEventBus.PublishAsync``1(``0,System.Threading.CancellationToken)">
+            <summary>
+            Publishes an event to the event bus asynchronously
+            </summary>
+            <typeparam name="TEvent">Type of event to publish</typeparam>
+            <param name="event">The event instance to publish</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>Task representing the asynchronous operation</returns>
+        </member>
+        <member name="M:EventBus.Core.Abstractions.IEventBus.PublishBatchAsync``1(System.Collections.Generic.IEnumerable{``0},System.Threading.CancellationToken)">
+            <summary>
+            Publishes multiple events as a batch operation
+            </summary>
+            <typeparam name="TEvent">Type of events to publish</typeparam>
+            <param name="events">Collection of events to publish</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>Task representing the asynchronous operation</returns>
+        </member>
+        <member name="M:EventBus.Core.Abstractions.IEventBus.SubscribeAsync``2">
+            <summary>
+            Subscribes to events of a specific type
+            </summary>
+            <typeparam name="TEvent">Type of event to subscribe to</typeparam>
+            <typeparam name="THandler">Type of handler that will process the event</typeparam>
+            <returns>Task representing the asynchronous operation</returns>
+        </member>
+        <member name="M:EventBus.Core.Abstractions.IEventBus.UnsubscribeAsync``2">
+            <summary>
+            Unsubscribes from events of a specific type
+            </summary>
+            <typeparam name="TEvent">Type of event to unsubscribe from</typeparam>
+            <typeparam name="THandler">Type of handler to remove</typeparam>
+            <returns>Task representing the asynchronous operation</returns>
+        </member>
+        <member name="T:EventBus.Core.Abstractions.IEventHandler`1">
+            <summary>
+            Defines the contract for handling events from the event bus
+            </summary>
+            <typeparam name="TEvent">Type of event this handler processes</typeparam>
+        </member>
+        <member name="M:EventBus.Core.Abstractions.IEventHandler`1.HandleAsync(`0,EventBus.Core.Abstractions.EventContext,System.Threading.CancellationToken)">
+            <summary>
+            Handles the event asynchronously
+            </summary>
+            <param name="event">The event to handle</param>
+            <param name="context">Context information about the event</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>Task representing the asynchronous operation</returns>
+        </member>
+        <member name="T:EventBus.Core.Abstractions.EventContext">
+            <summary>
+            Context information about an event being processed
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Abstractions.EventContext.DeliveryCount">
+            <summary>
+            Number of times this event has been attempted
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Abstractions.EventContext.EnqueuedAt">
+            <summary>
+            Timestamp when the event was first enqueued
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Abstractions.EventContext.DeliveredAt">
+            <summary>
+            Timestamp when this delivery attempt started
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Abstractions.EventContext.Metadata">
+            <summary>
+            Additional metadata about the message
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Abstractions.EventContext.IsRedelivery">
+            <summary>
+            Indicates if this is a redelivery after a previous failure
+            </summary>
+        </member>
+        <member name="T:EventBus.Core.Retry.RetryPolicy">
+            <summary>
+            Configuration for retry behavior when event processing fails
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Retry.RetryPolicy.MaxRetryAttempts">
+            <summary>
+            Maximum number of retry attempts
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Retry.RetryPolicy.InitialDelay">
+            <summary>
+            Initial delay before first retry
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Retry.RetryPolicy.MaxDelay">
+            <summary>
+            Maximum delay between retries (for exponential backoff)
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Retry.RetryPolicy.BackoffMultiplier">
+            <summary>
+            Backoff multiplier for exponential backoff
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Retry.RetryPolicy.UseExponentialBackoff">
+            <summary>
+            Whether to use exponential backoff
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Retry.RetryPolicy.UseJitter">
+            <summary>
+            Whether to add jitter to prevent thundering herd
+            </summary>
+        </member>
+        <member name="P:EventBus.Core.Retry.RetryPolicy.ExhaustedAction">
+            <summary>
+            Action to take when all retries are exhausted
+            </summary>
+        </member>
+        <member name="T:EventBus.Core.Retry.RetryExhaustedAction">
+            <summary>
+            Action to take when retry attempts are exhausted
+            </summary>
+        </member>
+        <member name="F:EventBus.Core.Retry.RetryExhaustedAction.MoveToDeadLetter">
+            <summary>
+            Move the message to a dead letter queue for manual inspection
+            </summary>
+        </member>
+        <member name="F:EventBus.Core.Retry.RetryExhaustedAction.Discard">
+            <summary>
+            Discard the message
+            </summary>
+        </member>
+        <member name="F:EventBus.Core.Retry.RetryExhaustedAction.RequeueIndefinitely">
+            <summary>
+            Re-queue the message with no limit (dangerous!)
+            </summary>
+        </member>
+        <member name="T:EventBus.Core.Retry.RetryDelayCalculator">
+            <summary>
+            Calculates retry delays based on the configured policy
+            </summary>
+        </member>
+        <member name="M:EventBus.Core.Retry.RetryDelayCalculator.CalculateDelay(System.Int32,EventBus.Core.Retry.RetryPolicy)">
+            <summary>
+            Calculates the delay for a given retry attempt
+            </summary>
+            <param name="attemptNumber">Current attempt number (1-based)</param>
+            <param name="policy">Retry policy to use</param>
+            <returns>Delay duration before next retry</returns>
+        </member>
+        <member name="M:EventBus.Core.Retry.RetryDelayCalculator.ShouldRetry(System.Int32,EventBus.Core.Retry.RetryPolicy)">
+            <summary>
+            Determines if another retry should be attempted
+            </summary>
+            <param name="attemptNumber">Current attempt number</param>
+            <param name="policy">Retry policy to use</param>
+            <returns>True if should retry, false otherwise</returns>
+        </member>
+    </members>
+</doc>
