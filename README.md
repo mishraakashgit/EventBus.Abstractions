@@ -396,6 +396,26 @@ Contributions welcome! Areas we'd love help with:
 
 MIT License - see LICENSE file for details
 
+## 📦 Publishing (CI) 🔁
+
+This repository includes a GitHub Actions workflow that builds, packs, and publishes NuGet packages when you push a version tag (e.g. `v1.2.3`) or trigger the workflow manually.
+
+How to use:
+
+- Add your NuGet API key as a repository secret named **`NUGET_API_KEY`** (Settings → Secrets and variables → Actions).
+- Create a release tag and push it to trigger the workflow:
+
+```bash
+# update versions in the csproj(s) first if needed
+git tag v1.0.1
+git push origin v1.0.1
+```
+
+Notes:
+
+- The workflow packs both `EventBus.Core` and `EventBus.InMemory` and pushes any `.nupkg` files in the `nupkgs/` directory.
+- Pushes use `--skip-duplicate` so repeated pushes won't fail if a package version already exists.
+
 ## 🎓 Learn More
 
 - [Architecture Deep Dive](docs/ARCHITECTURE.md)
